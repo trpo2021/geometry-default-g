@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 using namespace std;
 vector<int> r;
 vector<int> x;
@@ -10,24 +10,24 @@ vector<float> per;
 
 int main()
 {
-    cout << "Enter 0 for radius to stop entering circles" << endl;
-    int i = 1;
+
     while (1) {
-        cout << "Circle #" << i++ << endl;
-        cout << "Enter radius" << endl;
-        int radius = 0;
-        cin >> radius;
-        if (radius == 0)
-            break;
-        r.push_back(radius);
-        cout << "Enter X coordinate: ";
-        int xx = 0;
-        cin >> xx;
-        x.push_back(xx);
-        cout << "Enter Y coordinate: ";
-        int yy = 0;
-        cin >> yy;
-        y.push_back(yy);
+        bool InputCorrect = 0;
+        cout << "USE FORMAT UNDER LINE\n---------------\n figure(x.y,r)\n";
+       while(!InputCorrect){
+           string input;
+           cin >> input;
+           if("circle" == input.substr(0 , input.find_first_of("("))) {
+               int xx = atoi(input.substr(input.find_first_of("(") + 1, input.find_first_of(" ") - 1).c_str());
+               x.push_back(xx);
+               int yy = atoi(input.substr(input.find_first_of(".") + 1, input.find_first_of(",") - 1).c_str());
+               y.push_back(yy);
+                int rad = atoi(input.substr(input.find_first_of(",") + 1, input.find_last_of(")") - 1).c_str());
+                r.push_back(rad);
+           }
+           else continue;
+       }
+
     }
     return 0;
 }

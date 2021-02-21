@@ -1,3 +1,3 @@
 main: main.cpp
-	g++ main.cpp -Wall -Werror
+	g++ main.cpp -Wall -o main
 	

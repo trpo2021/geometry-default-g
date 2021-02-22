@@ -54,11 +54,11 @@ bool isFormatCorrect(string str)
 
 int main()
 {
-    cout << "USE FORMAT UNDER LINE\n---------------\n figure(x.y,r)\n";
+    cout << "USE FORMAT UNDER LINE\n---------------\n figure(x.y,r)\nPrint 'end' to finish the input\n";
     while (1) {
         string input;
         cin >> input;
-        if ("end" == input.substr(0, 3))
+        if (("end" == input.substr(0, 3)) && input.length() == 3)
             break;
         if (!isFormatCorrect(input)) {
             cout << "WRONG FORMAT" << endl;

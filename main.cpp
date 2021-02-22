@@ -43,10 +43,10 @@ bool isFormatCorrect(string str)
             k++;
     if (k != 1)
         return 0;
-
+    if (str.find('(') > str.find(')'))
+        return 0;
     if (str.find('.') > str.find(','))
         return 0;
-
     if ("circle" != str.substr(0, str.find_first_of("(")))
         return 0;
     return 1;

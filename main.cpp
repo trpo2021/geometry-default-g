@@ -2,23 +2,15 @@
 #include <string>
 #include <vector>
 using namespace std;
-vector<int> r;
-vector<int> x;
-vector<int> y;
-vector<float> s;
-vector<float> per;
 
 bool isFormatCorrect(string str)
 {
     if (str.empty())
         return 0;
 
-    if (strchr(str.c_str(), ' '))
-        return 0;
-
     int k = 0;
     for (auto i : str)
-        if (i == '.')
+        if (i == ' ')
             k++;
     if (k != 1)
         return 0;
@@ -45,7 +37,7 @@ bool isFormatCorrect(string str)
         return 0;
     if (str.find('(') > str.find(')'))
         return 0;
-    if (str.find('.') > str.find(','))
+    if (str.find(' ') > str.find(','))
         return 0;
     if ("circle" != str.substr(0, str.find_first_of("(")))
         return 0;
@@ -54,10 +46,16 @@ bool isFormatCorrect(string str)
 
 int main()
 {
-    cout << "USE FORMAT UNDER LINE\n---------------\n figure(x.y,r)\nPrint 'end' to finish the input\n";
+    vector<int> rad;
+    vector<int> x;
+    vector<int> y;
+    vector<float> squares;
+    vector<float> perimetrs;
+    cout << "USE FORMAT UNDER LINE\n---------------\n figure(x y,r)\nPrint "
+            "'end' to finish the input\n";
     while (1) {
         string input;
-        cin >> input;
+        getline(cin, input);
         if (("end" == input.substr(0, 3)) && input.length() == 3)
             break;
         if (!isFormatCorrect(input)) {
@@ -65,18 +63,18 @@ int main()
             continue;
         }
         if ("circle" == input.substr(0, input.find_first_of("("))) {
-            int xx = atoi(input.substr(input.find_first_of("(") + 1,
-                                       input.find_first_of(" ") - 1)
-                                  .c_str());
-            x.push_back(xx);
-            int yy = atoi(input.substr(input.find_first_of(".") + 1,
-                                       input.find_first_of(",") - 1)
-                                  .c_str());
-            y.push_back(yy);
-            int rad = atoi(input.substr(input.find_first_of(",") + 1,
-                                        input.find_last_of(")") - 1)
-                                   .c_str());
-            r.push_back(rad);
+            int x_input = atoi(input.substr(input.find_first_of("(") + 1,
+                                            input.find_first_of(' ') - 1)
+                                       .c_str());
+            x.push_back(x_input);
+            int y_input = atoi(input.substr(input.find_first_of(' ') + 1,
+                                            input.find_first_of(",") - 1)
+                                       .c_str());
+            y.push_back(y_input);
+            int rad_input = atoi(input.substr(input.find_first_of(",") + 1,
+                                              input.find_last_of(")") - 1)
+                                         .c_str());
+            rad.push_back(rad_input);
         }
     }
     return 0;

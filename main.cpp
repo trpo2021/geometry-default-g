@@ -46,9 +46,9 @@ bool isFormatCorrect(string str)
 
 int main()
 {
-    vector<int> rad;
-    vector<int> x;
-    vector<int> y;
+    vector<float> rad;
+    vector<float> x;
+    vector<float> y;
     vector<float> squares;
     vector<float> perimetrs;
     cout << "USE FORMAT UNDER LINE\n---------------\n figure(x y,r)\nPrint "
@@ -63,15 +63,15 @@ int main()
             continue;
         }
         if ("circle" == input.substr(0, input.find_first_of("("))) {
-            int x_input = atoi(input.substr(input.find_first_of("(") + 1,
+            float x_input = atof(input.substr(input.find_first_of("(") + 1,
                                             input.find_first_of(' ') - 1)
                                        .c_str());
             x.push_back(x_input);
-            int y_input = atoi(input.substr(input.find_first_of(' ') + 1,
+            float y_input = atof(input.substr(input.find_first_of(' ') + 1,
                                             input.find_first_of(",") - 1)
                                        .c_str());
             y.push_back(y_input);
-            int rad_input = atoi(input.substr(input.find_first_of(",") + 1,
+            float rad_input = atof(input.substr(input.find_first_of(",") + 1,
                                               input.find_last_of(")") - 1)
                                          .c_str());
             rad.push_back(rad_input);

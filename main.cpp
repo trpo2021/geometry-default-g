@@ -8,32 +8,32 @@ bool isFormatCorrect(string str)
     if (str.empty())
         return 0;
 
-    int k = 0;
-    for (auto i : str)
-        if (i == ' ')
-            k++;
-    if (k != 1)
+    int amountOfSymbol = 0;
+    for (auto chr : str)
+        if (chr == ' ')
+            amountOfSymbol++;
+    if (amountOfSymbol != 1)
         return 0;
 
-    k = 0;
-    for (auto i : str)
-        if (i == ',')
-            k++;
-    if (k != 1)
+    amountOfSymbol = 0;
+    for (auto chr : str)
+        if (chr == ',')
+            amountOfSymbol++;
+    if (amountOfSymbol != 1)
         return 0;
 
-    k = 0;
-    for (auto i : str)
-        if (i == '(')
-            k++;
-    if (k != 1)
+    amountOfSymbol = 0;
+    for (auto chr : str)
+        if (chr == '(')
+            amountOfSymbol++;
+    if (amountOfSymbol != 1)
         return 0;
 
-    k = 0;
-    for (auto i : str)
-        if (i == ')')
-            k++;
-    if (k != 1)
+    amountOfSymbol = 0;
+    for (auto chr : str)
+        if (chr == ')')
+            amountOfSymbol++;
+    if (amountOfSymbol != 1)
         return 0;
     if (str.find('(') > str.find(')'))
         return 0;

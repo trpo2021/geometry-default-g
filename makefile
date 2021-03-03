@@ -7,14 +7,14 @@ bin/main: obj/main.o src/lib/formatcheck.a
 
 
 obj/main.o: src/main.cpp src/lib/formatcheck.a
-	cd src; g++ $(CFLAGS) $(CPPFLAGS) -c main.cpp -o main.o; mv main.o ../obj
+	mkdir obj; cd src; g++ $(CFLAGS) $(CPPFLAGS) -c main.cpp -o main.o; mv main.o ../obj
 
 	
 src/lib/formatcheck.a: obj/formatcheck.o
 	cd obj; ar rcs formatcheck.a formatcheck.o; mv formatcheck.a ../src/lib
 
 obj/formatcheck.o: src/lib
-	cd src/lib; g++ $(CFLAGS) $(CPPFLAGS) -c formatcheck.cpp -o formatcheck.o; mv formatcheck.o ../../obj
+	mkdir obj; cd src/lib; g++ $(CFLAGS) $(CPPFLAGS) -c formatcheck.cpp -o formatcheck.o; mv formatcheck.o ../../obj
 
 run:
 	./bin/main

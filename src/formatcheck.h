@@ -1,3 +1,5 @@
+#ifndef __FORMATCHECK_H__
+#define __FORMATCHECK_H__
 #pragma once
 
 #include <string>
@@ -42,3 +44,4 @@ bool isFormatCorrect(string str)
         return 0;
     return 1;
 }
+#endif // __FORMATCHECK_H__

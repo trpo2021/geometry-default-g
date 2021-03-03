@@ -3,7 +3,7 @@ CPPFLAGS = -MMD
 
 
 bin/main: obj/main.o src/lib/formatcheck.a
-	cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o main main.o -L. ../src/lib/formatcheck.a; mv main ../bin
+	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o main main.o -L. ../src/lib/formatcheck.a; mv main ../bin
 
 
 obj/main.o: src/main.cpp src/lib/formatcheck.a

@@ -1,0 +1,1 @@
+formatcheck.o: formatcheck.cpp

@@ -1,36 +1,9 @@
 #include "lib/formatcheck.h"
-#define PI 3.14
+#include "lib/figure.h"
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
-
-struct Figure {
-    string name;
-    float x_coordinate;
-    float y_coordinate;
-    float radius_or_side;
-    float square;
-    float perimeter;
-};
-
-void calculate_square_and_perimeter_for_figures(vector<Figure>& figures)
-{
-    for (auto& fig : figures) {
-        fig.square = fig.radius_or_side * fig.radius_or_side * PI;
-        fig.perimeter = 2 * PI * fig.radius_or_side;
-    }
-}
-void print_data_of_figure(Figure figure)
-{
-    cout << figure.name << endl;
-    cout << "Coords : "
-         << "(" << figure.x_coordinate << "; " << figure.y_coordinate << ")"
-         << endl;
-    cout << "Radius : " << figure.radius_or_side << endl;
-    cout << "Square : " << figure.square << endl;
-    cout << "Perimeter : " << figure.perimeter << endl << endl;
-}
 
 int main()
 {

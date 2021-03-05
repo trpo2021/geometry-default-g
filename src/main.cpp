@@ -1,5 +1,5 @@
-#include "lib/formatcheck.h"
 #include "lib/figure.h"
+#include "lib/formatcheck.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -41,8 +41,6 @@ int main()
         }
         calculate_square_and_perimeter_for_figures(figures);
     }
-    for (auto& fig : figures)
-        print_data_of_figure(fig);
-
+    print_data_of_all_figures(figures);
     return 0;
 }

@@ -16,4 +16,6 @@ void calculate_square_and_perimeter_for_figures(std::vector<Figure>& figures);
 
 void print_data_of_figure(Figure figure);
 
+void print_data_of_all_figures(std::vector<Figure> figures);
+
 #endif

@@ -16,7 +16,7 @@ obj/figure.o: src/lib/figure.cpp
 src/lib/formatcheck.a: obj/formatcheck.o
 	cd obj; ar rcs formatcheck.a formatcheck.o; mv formatcheck.a ../src/lib
 
-obj/formatcheck.o: src/lib
+obj/formatcheck.o: src/lib/formatcheck.cpp
 	mkdir obj; cd src/lib; g++ $(CFLAGS) $(CPPFLAGS) -c formatcheck.cpp -o formatcheck.o; mv formatcheck.o ../../obj
 
 run:

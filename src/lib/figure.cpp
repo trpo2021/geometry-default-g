@@ -5,7 +5,6 @@
 #include <vector>
 using namespace std;
 
-
 void calculate_square_and_perimeter_for_figures(vector<Figure>& figures)
 {
     for (auto& fig : figures) {
@@ -22,4 +21,9 @@ void print_data_of_figure(Figure figure)
     cout << "Radius : " << figure.radius_or_side << endl;
     cout << "Square : " << figure.square << endl;
     cout << "Perimeter : " << figure.perimeter << endl << endl;
+}
+void print_data_of_all_figures(vector<Figure> figures)
+{
+    for (auto fig : figures)
+        print_data_of_figure(fig);
 }

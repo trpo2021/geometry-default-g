@@ -1,1 +1,1 @@
-main.o: main.cpp lib/formatcheck.h lib/figure.h
+main.o: main.cpp lib/figure.h lib/formatcheck.h

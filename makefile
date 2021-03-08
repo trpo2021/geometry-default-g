@@ -24,4 +24,5 @@ run:
 	./bin/main
 
 clean:
-	cd obj; rm -rf *.o
+	find . -name "*.d" -exec rm {} \;
+	find . -name "*.o" -exec rm {} \;

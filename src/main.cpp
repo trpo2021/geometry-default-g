@@ -5,8 +5,14 @@
 #include <vector>
 using namespace std;
 
+void clear()
+{
+    cout << "\x1B[2J\x1B[H";
+}
+
 int main()
 {
+    clear();
     vector<Figure> figures;
     cout << "USE FORMAT UNDER LINE\n---------------\n figure(x y,r)\nPrint "
             "'end' to finish the input\n";
@@ -41,6 +47,7 @@ int main()
         }
         calculate_square_and_perimeter_for_figures(figures);
     }
+    clear();
     print_data_of_all_figures(figures);
     return 0;
 }

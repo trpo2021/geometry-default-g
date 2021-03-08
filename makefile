@@ -6,7 +6,7 @@ bin/main: obj/main.o src/lib/geometrylib.a
 	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o main main.o  -L. ../src/lib/geometrylib.a; mv main ../bin;
 
 
-obj/main.o: src/main.cpp src/lib/formatcheck.a
+obj/main.o: src/main.cpp src/lib/geometrylib.a
 	mkdir obj; cd src; g++ $(CFLAGS) $(CPPFLAGS) -c main.cpp -o main.o; mv main.o ../obj
 
 src/lib/geometrylib.a: obj/formatcheck.o obj/figure.o

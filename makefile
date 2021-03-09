@@ -1,9 +1,10 @@
 CFLAGS = -Wall -Wextra -Werror -std=c++17
 CPPFLAGS = -MMD
 
+all: bin/geometry
 
-bin/main: obj/main.o src/lib/geometrylib.a 
-	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o main main.o  -L. ../src/lib/geometrylib.a; mv main ../bin;
+bin/geometry: obj/main.o src/lib/geometrylib.a 
+	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o geometry main.o  -L. ../src/lib/geometrylib.a; mv geometry ../bin;
 
 
 obj/main.o: src/main.cpp src/lib/geometrylib.a
@@ -21,7 +22,7 @@ obj/formatcheck.o: src/lib/formatcheck.cpp
 	mkdir obj; cd src/lib; g++ $(CFLAGS) $(CPPFLAGS) -c formatcheck.cpp -o formatcheck.o; mv formatcheck.o ../../obj
 
 run:
-	./bin/main
+	./bin/geometry
 
 clean:
 	find . -name "*.d" -exec rm {} \;

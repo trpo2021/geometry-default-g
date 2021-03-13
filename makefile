@@ -3,15 +3,15 @@ CPPFLAGS = -MMD
 
 all: bin/geometry
 
-bin/geometry: obj/main.o src/lib/geometrylib.a 
-	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o geometry main.o  -L. ../src/lib/geometrylib.a; mv geometry ../bin;
+bin/geometry: obj/main.o obj/geometrylib.a 
+	mkdir bin; cd obj; g++ $(CFLAGS) $(CPPFLAGS) -o geometry main.o  -L. geometrylib.a; mv geometry ../bin; cd ..; find . -name "*.d" -exec mv {} ./obj \;
 
 
-obj/main.o: src/main.cpp src/lib/geometrylib.a
+obj/main.o: src/main.cpp obj/geometrylib.a
 	mkdir obj; cd src; g++ $(CFLAGS) $(CPPFLAGS) -c main.cpp -o main.o; mv main.o ../obj
 
-src/lib/geometrylib.a: obj/formatcheck.o obj/figure.o
-	cd obj; ar rcs geometrylib.a formatcheck.o figure.o; mv geometrylib.a ../src/lib
+obj/geometrylib.a: obj/formatcheck.o obj/figure.o
+	cd obj; ar rcs geometrylib.a formatcheck.o figure.o;
 
 
 obj/figure.o: src/lib/figure.cpp
@@ -24,6 +24,10 @@ obj/formatcheck.o: src/lib/formatcheck.cpp
 run:
 	./bin/geometry
 
+
+.PHONY: clean
 clean:
 	find . -name "*.d" -exec rm {} \;
 	find . -name "*.o" -exec rm {} \;
+	find . -name "*.a" -exec rm {} \;
+	find . -name "geometry" -exec rm {} \;
